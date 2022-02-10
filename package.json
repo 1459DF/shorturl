@@ -6,12 +6,19 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "bootstrap": "^4.6.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
     "react-scripts": "5.0.0",
+    "shortid": "^2.2.16",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "serStart": "nodemon server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -34,5 +41,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
