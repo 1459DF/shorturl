@@ -2,7 +2,9 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 5000;
 const mongoose = require('mongoose')
-const URI = 'mongodb+srv://shinexcx:Xcx208107622@tinyurl.rd4le.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+require("dotenv").config();
+const URI = process.env.DB_URI;
+
 const shortId = require('shortid')
 const path = require("path");
 const { url } = require('inspector');
@@ -37,10 +39,15 @@ app.get("/", async(req, res) => {      //return index file
     const shortUrl = await Url.findOne({long: longurl})
     console.log(shortUrl.long)
     
-    const result = "https://tinyurl-xcx.herokuapp.com/"+shortUrl.short
-
-    console.log(result)
+    const result = "https://xcxt.herokuapp.com/"+shortUrl.short
+    if (indicator===true){
+      console.log(result)
       res.render('index',{shortUrl: result})
+    }
+    else{
+      res.render('index',{shortUrl: ""})
+    }
+     
 
     //res.sendFile(path.join(__dirname,  "index.html"));
    //res.render('index')

@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/1459DF/shorturl#readme",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.2",
     "mogoose": "0.0.1-security",
