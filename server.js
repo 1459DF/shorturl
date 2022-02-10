@@ -31,13 +31,17 @@ app.use(express.urlencoded({extended: false}));
 
 let longurl = "";
 //let shorturl = "";
-
+let indicator=false;
 app.get("/", async(req, res) => {      //return index file
   try{
     const shortUrl = await Url.findOne({long: longurl})
     console.log(shortUrl.long)
-    console.log(path.join(__dirname, 'public'))
-   res.render('index',{shortUrl: shortUrl})
+    
+    const result = "https://tinyurl-xcx.herokuapp.com/"+shortUrl.short
+
+    console.log(result)
+      res.render('index',{shortUrl: result})
+
     //res.sendFile(path.join(__dirname,  "index.html"));
    //res.render('index')
   }catch(err){
@@ -51,6 +55,7 @@ app.post('/shortUrl',async(req,res) => {        //shortUrl is the end point
   
     await Url.create({long: req.body.long})
     longurl = req.body.long
+    indicator = true
     console.log("create a new shorturl")
     res.redirect('/')
   } catch(err){
